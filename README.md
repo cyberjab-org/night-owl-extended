@@ -1,10 +1,30 @@
-![](./banner.png)
+# Extended NightOwl
 
-<h4 align="center">Python script to butcher Email Headers</h4>
+## Use case?
 
-Every organization receives SPAM, Phishing and Spear Phishing Emails. Whenever such emails are received the first and the foremost actions required is to get the Email Headers, Attachments, Email Addresses, Embedded URLs which are then shared either with the MSSP currently looking after your security or with the internal Security Analysts. 
+Use case of this script is same as NightOwl, in addition it allows you to use it with other programs/ scripts.
 
-The reason is to find all the required information i.e. to perform end-to-end Email Forensics in order to find answers like. 
+## How to use?
+
+There is a function named 'fileChecker' in 'NightOwl.py'.
+Import this function and pass the file path and an empty dictionary as parameters.
+Example is available in main.py:
+
+````python
+import json
+from NightOwl import fileChecker
+
+report = fileChecker("Test Subject.eml", {})
+print(json.dumps(report))
+````
+
+<hr />
+
+<h4 align="center">NightOwl (Python script to butcher Email Headers)</h4>
+
+Every organization receives SPAM, Phishing and Spear Phishing Emails. Whenever such emails are received the first and the foremost actions required is to get the Email Headers, Attachments, Email Addresses, Embedded URLs which are then shared either with the MSSP currently looking after your security or with the internal Security Analysts.
+
+The reason is to find all the required information i.e. to perform end-to-end Email Forensics in order to find answers like.
 
 - Who sent the email?
 - From where it originated?
@@ -12,22 +32,22 @@ The reason is to find all the required information i.e. to perform end-to-end Em
 - Does the email contained a phishing link or it contained only plain text?
 - Does the email contains any attachments?
 
-These are only few of the questions which always come to our mind when we consider these scenarios. Keeping these details in mind I have developed **Night Owl** to automate the manual procedure to find all possible answers to our questions. 
+These are only few of the questions which always come to our mind when we consider these scenarios. Keeping these details in mind I have developed **Night Owl** to automate the manual procedure to find all possible answers to our questions.
 
 ---
 
 **Night Owl** is a quick and dirty python script to perform analysis on Email Headers. The script renders all the required information for you to take quick actions rather than going through the headers line by line. **The script does it for you** automatically.
 
-I have developed this script during my day job and I do plan to take it one step further with time. 
+I have developed this script during my day job and I do plan to take it one step further with time.
 
 ## Supported Email Extensions
 
-Currently the script is able to scrape the data from the following extensions only. 
+Currently the script is able to scrape the data from the following extensions only.
 
 - **.msg**
 - **.eml**
 
-Later on support and functionality will be added for other email formats. 
+Later on support and functionality will be added for other email formats.
 
 ## Dependencies
 
@@ -50,7 +70,7 @@ The requirements for the program are as below. Please ensure to have the followi
 
 These headers include the following.
 - FROM
-- TO 
+- TO
 - SUBJECT
 - DATE
 - CC
@@ -67,7 +87,7 @@ The script then looks for all the IP addresses from the Email Headers and lists 
 
 ## Butchering Email Addresses
 
-The script looks for all the available email addresses from within the Email Headers and lists them down. This is to check which mail servers, senders, receivers are involved. 
+The script looks for all the available email addresses from within the Email Headers and lists them down. This is to check which mail servers, senders, receivers are involved.
 
 ## Butchering URLs
 
