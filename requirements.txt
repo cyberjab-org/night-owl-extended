@@ -1,0 +1,5 @@
+colorama
+requests
+extract-msg
+flask
+# email
